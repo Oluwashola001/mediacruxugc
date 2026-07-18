@@ -137,7 +137,7 @@ const fallbackContent: Required<SiteContent> = {
   variationsSectionTitle: "Video Variations",
   variationsHeadline: "Two or More?",
   location: "Available worldwide",
-  contactEmail: "hello@mediacrux.com",
+  contactEmail: "contact@mediacrux.com",
   instagramUrl: "#",
   tiktokUrl: "#",
   xUrl: "#",
@@ -271,7 +271,7 @@ function getVideoSrc(slot: VideoSlot) {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex w-full max-w-[1180px] items-center gap-4 px-5 py-12 md:gap-8 md:px-8 md:py-16">
+    <div className="mx-auto flex w-full max-w-295 items-center gap-4 px-5 py-12 md:gap-8 md:px-8 md:py-16">
       <div className="h-px flex-1 bg-black/25" />
       <h2 className={`${playfair.className} text-center text-3xl font-semibold uppercase tracking-[0.08em] text-black sm:text-4xl md:text-5xl`}>
         {children}
@@ -287,8 +287,8 @@ function PhoneVideo({ slot, tall = false, showCaption = true }: { slot: VideoSlo
   return (
     <article className="reveal min-w-0 text-center">
       <div
-        className={`video-card relative mx-auto overflow-hidden rounded-[34px] border-[8px] border-[#f2f2ef] bg-[#ecebe5] shadow-[0_12px_22px_rgba(0,0,0,0.16)] sm:border-[10px] ${
-          tall ? "h-[555px] w-[255px] sm:h-[610px] sm:w-[285px]" : "h-[300px] w-[168px] sm:h-[420px] sm:w-[236px]"
+        className={`video-card relative mx-auto overflow-hidden rounded-[34px] border-8 border-[#f2f2ef] bg-[#ecebe5] shadow-[0_12px_22px_rgba(0,0,0,0.16)] sm:border-10 ${
+          tall ? "h-138.75 w-63.75 sm:h-152.5 sm:w-71.25" : "h-75 w-42 sm:h-105 sm:w-59"
         }`}
       >
         {src ? (
@@ -306,7 +306,7 @@ function PhoneVideo({ slot, tall = false, showCaption = true }: { slot: VideoSlo
         )}
       </div>
       {showCaption ? (
-        <div className="mx-auto mt-5 max-w-[240px] text-lg leading-tight text-[#2d392d] md:text-[21px]">
+        <div className="mx-auto mt-5 max-w-60 text-lg leading-tight text-[#2d392d] md:text-[21px]">
           <p>{slot.brand}</p>
           <p className="font-black">{slot.title}</p>
         </div>
@@ -319,7 +319,7 @@ function WideVideo({ slot, caption }: { slot: VideoSlot; caption?: string }) {
   const src = getVideoSrc(slot);
 
   return (
-    <article className="reveal mx-auto w-full max-w-[560px] text-center">
+    <article className="reveal mx-auto w-full max-w-140 text-center">
       <div className="video-card relative aspect-video overflow-hidden rounded-[26px] bg-[#ecebe5] shadow-sm">
         {src ? (
           <video className="size-full object-cover" src={src} controls playsInline preload="metadata" />
@@ -346,7 +346,7 @@ function PortfolioRow({ title, slots }: { title: string; slots: VideoSlot[] }) {
   return (
     <section className="bg-white">
       <SectionTitle>{title}</SectionTitle>
-      <div className="mx-auto grid max-w-[1120px] grid-cols-2 gap-x-5 gap-y-14 px-4 pb-20 sm:gap-x-10 sm:gap-y-16 sm:px-5 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-280 grid-cols-2 gap-x-5 gap-y-14 px-4 pb-20 sm:gap-x-10 sm:gap-y-16 sm:px-5 lg:grid-cols-4">
         {slots.map((slot) => (
           <PhoneVideo key={slot.slotNumber} slot={slot} />
         ))}
@@ -383,13 +383,13 @@ function BrandTrust({ brands, eyebrow, headline }: { brands: BrandLogo[]; eyebro
 
   return (
     <section className="overflow-hidden bg-[#fbfaf6] py-16">
-      <div className="mx-auto max-w-[1180px] px-5 text-center md:px-8">
+      <div className="mx-auto max-w-295 px-5 text-center md:px-8">
         <p className="text-sm font-black uppercase tracking-[0.3em] text-black/45">{eyebrow}</p>
         <h2 className={`${playfair.className} mt-4 text-3xl font-semibold md:text-5xl`}>
           {headline}
         </h2>
       </div>
-      <div className="mt-10 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+      <div className="mt-10 overflow-hidden mask-[linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
         <div className="brand-rail flex w-max">
           {animatedRail.map((brand, index) => (
             <BrandLogoCard key={`${brand.name}-${index}`} brand={brand} index={index} />
@@ -444,7 +444,7 @@ export default async function Page() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-black">
       <header className="fixed inset-x-0 top-0 z-50">
-        <nav className="mx-auto flex min-h-[72px] max-w-[1280px] items-center justify-end gap-4 px-5 py-3 md:px-8">
+        <nav className="mx-auto flex min-h-18 max-w-7xl items-center justify-end gap-4 px-5 py-3 md:px-8">
           <div className="flex items-center justify-end gap-5 text-sm font-black uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] sm:gap-8 md:text-lg">
             <Link className="nav-link" href="#about">{content.navAboutLabel}</Link>
             <Link className="nav-link" href="#portfolio">{content.navPortfolioLabel}</Link>
@@ -453,7 +453,7 @@ export default async function Page() {
         </nav>
       </header>
 
-      <section className="relative h-[1110px] overflow-hidden bg-white sm:h-[1130px] md:h-[56.25vw] md:min-h-[560px] md:max-h-[760px] md:bg-[#f9f8f2]">
+      <section className="relative h-277.5 overflow-hidden bg-white sm:h-282.5 md:h-[56.25vw] md:min-h-140 md:max-h-190 md:bg-[#f9f8f2]">
         <Image
           src="/banner-d.png"
           alt=""
@@ -462,7 +462,7 @@ export default async function Page() {
           sizes="100vw"
           className="hidden object-cover object-center md:block"
         />
-        <div className="absolute inset-x-0 top-0 h-[610px] sm:h-[650px] md:hidden">
+        <div className="absolute inset-x-0 top-0 h-152.5 sm:h-162.5 md:hidden">
           <Image
             src="/banner-m.png"
             alt=""
@@ -472,23 +472,23 @@ export default async function Page() {
             className="object-cover object-top"
           />
         </div>
-        <div className="absolute inset-x-0 top-[180px] z-10 flex items-center justify-center gap-3 md:hidden">
+        <div className="absolute inset-x-0 top-45 z-10 flex items-center justify-center gap-3 md:hidden">
           <Image src="/logo.png" alt={`${content.brandName} logo`} width={58} height={58} className="rounded-full" priority />
           <p className={`${playfair.className} text-4xl font-bold italic text-black`}>{content.brandName}</p>
         </div>
-        <div className="relative mx-auto flex h-full max-w-[1280px] items-start justify-center px-5 pt-[535px] sm:px-8 sm:pt-[560px] md:items-center md:justify-start md:py-10 md:pt-10">
-          <div className="w-full max-w-[255px] sm:max-w-[285px] md:ml-4 md:translate-y-6 lg:ml-10">
+        <div className="relative mx-auto flex h-full max-w-7xl items-start justify-center px-5 pt-133.75 sm:px-8 sm:pt-140 md:items-center md:justify-start md:py-10 md:pt-10">
+          <div className="w-full max-w-63.75 sm:max-w-71.25 md:ml-4 md:translate-y-6 lg:ml-10">
             <PhoneVideo slot={slots[0]} tall showCaption={false} />
           </div>
         </div>
       </section>
 
-      <section id="about" className="mx-auto grid max-w-[1180px] grid-cols-1 gap-14 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[1fr_1.05fr]">
+      <section id="about" className="mx-auto grid max-w-295 grid-cols-1 gap-14 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[1fr_1.05fr]">
         <div>
           <h2 className={`${playfair.className} text-4xl font-semibold sm:text-5xl md:text-6xl`}>
             {content.aboutHeading}
           </h2>
-          <p className="mt-8 max-w-[700px] text-xl leading-snug md:text-3xl">{content.creatorBio}</p>
+          <p className="mt-8 max-w-175 text-xl leading-snug md:text-3xl">{content.creatorBio}</p>
           <ul className="mt-10 space-y-4 text-lg leading-snug md:text-2xl">
             {content.aboutBullets.map((bullet) => (
               <li key={bullet} className="flex gap-4">
@@ -509,7 +509,7 @@ export default async function Page() {
       <BrandTrust brands={content.brandLogos} eyebrow={content.brandTrustEyebrow} headline={content.brandTrustHeadline} />
 
       <section className="bg-white px-5 py-12 md:px-8">
-        <div className="mx-auto max-w-[1180px]">
+        <div className="mx-auto max-w-295">
           <h2 className={`${playfair.className} mb-12 text-4xl font-semibold italic md:mb-16 md:text-5xl`}>
             {content.samplesHeading}
           </h2>
@@ -536,7 +536,7 @@ export default async function Page() {
 
       <section className="bg-white">
         <SectionTitle>{content.variationsSectionTitle}</SectionTitle>
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-16 px-5 pb-20 md:px-8 md:pb-24 lg:grid-cols-[0.58fr_1.42fr]">
+        <div className="mx-auto grid max-w-295 grid-cols-1 gap-16 px-5 pb-20 md:px-8 md:pb-24 lg:grid-cols-[0.58fr_1.42fr]">
           <div>
             <h2 className={`${playfair.className} text-4xl font-semibold md:text-5xl`}>{content.variationsHeadline}</h2>
             <div className="mt-12 space-y-8 md:mt-20 md:space-y-10">
@@ -559,7 +559,7 @@ export default async function Page() {
       </section>
 
       <footer id="contact" className="border-t border-black/10 bg-white px-5 py-16 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-16 lg:grid-cols-[360px_1fr]">
+        <div className="mx-auto grid max-w-295 grid-cols-1 items-center gap-16 lg:grid-cols-[360px_1fr]">
           <div className="hidden lg:block">
             <PhoneVideo slot={slots[37]} tall />
           </div>
@@ -573,11 +573,11 @@ export default async function Page() {
             />
             <p className="mb-5 text-xl font-black uppercase tracking-[0.18em]">{content.brandName}</p>
             <h2 className={`${playfair.className} text-4xl font-semibold italic md:text-5xl`}>{content.finalHeadline}</h2>
-            <p className="mx-auto mt-8 max-w-[720px] text-xl leading-snug md:text-3xl">{content.finalText}</p>
+            <p className="mx-auto mt-8 max-w-180 text-xl leading-snug md:text-3xl">{content.finalText}</p>
             <div className="mt-12 lg:hidden">
               <PhoneVideo slot={slots[37]} tall />
             </div>
-            <a className="mt-12 block break-words text-2xl underline sm:text-3xl md:mt-14 md:text-5xl" href={`mailto:${content.contactEmail}`}>
+            <a className="mt-12 block wrap-break-word text-2xl underline sm:text-3xl md:mt-14 md:text-5xl" href={`mailto:${content.contactEmail}`}>
               {content.contactEmail}
             </a>
             <div className="mt-12 flex flex-wrap justify-center gap-4 text-black/70 md:mt-16 md:gap-6">
