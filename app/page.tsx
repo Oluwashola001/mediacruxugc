@@ -137,7 +137,7 @@ const fallbackContent: Required<SiteContent> = {
   variationsSectionTitle: "Video Variations",
   variationsHeadline: "Two or More?",
   location: "Available worldwide",
-  contactEmail: "contact@mediacrux.site",
+  contactEmail: "contact@mediacrux.space",
   instagramUrl: "#",
   tiktokUrl: "#",
   xUrl: "#",
