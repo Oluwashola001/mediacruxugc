@@ -281,11 +281,11 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PhoneVideo({ slot, tall = false, showCaption = true }: { slot: VideoSlot; tall?: boolean; showCaption?: boolean }) {
+function PhoneVideo({ slot, tall = false, showCaption = true, disableMobileReveal = false }: { slot: VideoSlot; tall?: boolean; showCaption?: boolean; disableMobileReveal?: boolean }) {
   const src = getVideoSrc(slot);
 
   return (
-    <article className="reveal min-w-0 text-center">
+    <article className={`${disableMobileReveal ? "md:reveal" : "reveal"} min-w-0 text-center`}>
       <div
         className={`video-card relative mx-auto overflow-hidden rounded-[34px] border-8 border-[#f2f2ef] bg-[#ecebe5] shadow-[0_12px_22px_rgba(0,0,0,0.16)] sm:border-10 ${
           tall ? "h-138.75 w-63.75 sm:h-152.5 sm:w-71.25" : "h-75 w-42 sm:h-105 sm:w-59"
@@ -478,7 +478,7 @@ export default async function Page() {
         </div>
         <div className="relative mx-auto flex h-full max-w-7xl items-start justify-center px-5 pt-133.75 sm:px-8 sm:pt-140 md:items-center md:justify-start md:py-10 md:pt-10">
           <div className="w-full max-w-63.75 sm:max-w-71.25 md:ml-4 md:translate-y-6 lg:ml-10">
-            <PhoneVideo slot={slots[0]} tall showCaption={false} />
+            <PhoneVideo slot={slots[0]} tall showCaption={false} disableMobileReveal />
           </div>
         </div>
       </section>
